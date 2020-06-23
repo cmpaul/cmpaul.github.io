@@ -6,10 +6,19 @@
     <description>Recent content on Hakuna Automata!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 13 Jul 2015 16:55:43 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 02 Aug 2018 06:03:56 -0700</lastBuildDate>
     
 	<atom:link href="https://hakuna-automata.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Developers Should Meditate</title>
+      <link>https://hakuna-automata.com/posts/developers-should-meditate/</link>
+      <pubDate>Thu, 02 Aug 2018 06:03:56 -0700</pubDate>
+      
+      <guid>https://hakuna-automata.com/posts/developers-should-meditate/</guid>
+      <description>&lt;p&gt;Last Sunday, I returned from a 10-day &lt;em&gt;Vipassana&lt;/em&gt; meditation retreat. Now that I&amp;rsquo;ve had some time to reflect on my experience, I want to share why I think &lt;strong&gt;meditation will make you a better developer&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Oblique Strategies for Atom</title>
@@ -17,9 +26,8 @@
       <pubDate>Mon, 13 Jul 2015 16:55:43 -0700</pubDate>
       
       <guid>https://hakuna-automata.com/posts/oblique-strategies-for-atom/</guid>
-      <description>Last week I built oblique-strategies, a package for Atom that displays a random aphorism if you stop typing for some time.
-Brian Eno and Peter Schmidt published a deck of cards in 1975 called Oblique Strategies. When you need inspiration, draw a card at random to read a strategy for thinking about a problem.
-Earlier this month, I read Kevin Lawler’s Oblique Strategies: Prompts for Programmers and decided to create this package that would do this for programmers.</description>
+      <description>&lt;p&gt;&lt;img src=&#34;https://hakuna-automata.com/images/oblique-strategies-for-atom.png&#34; alt=&#34;A screenshot of the package in action&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Last week I built &lt;a href=&#34;https://atom.io/packages/oblique-strategies&#34;&gt;oblique-strategies&lt;/a&gt;, a package for &lt;a href=&#34;https://atom.io/&#34;&gt;Atom&lt;/a&gt; that displays a random aphorism if you stop typing for some time.&lt;/p&gt;</description>
     </item>
     
   </channel>
