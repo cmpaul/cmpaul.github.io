@@ -64,6 +64,16 @@
     </item>
     
     <item>
+      <title>Alfraca: Alfresco Meets Alpaca.js</title>
+      <link>https://hakuna-automata.com/posts/alfresco-meets-alpaca/</link>
+      <pubDate>Tue, 03 Jul 2012 06:03:56 -0700</pubDate>
+      
+      <guid>https://hakuna-automata.com/posts/alfresco-meets-alpaca/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://hakuna-automata.com/images/alfraca.png?display=inline-block&#34; alt=&#34;&#34;&gt; &lt;a href=&#34;https://github.com/gitana/alpaca&#34;&gt;Alpaca.js&lt;/a&gt; is a client-side forms and templating engine that will build some pretty sweet looking forms using nothing but a bit of JSON and JavaScript, complete with data validation and layout control. I extended &lt;a href=&#34;https://www.alfresco.com&#34;&gt;Alfresco&lt;/a&gt; using this library to enable users to create and edit structured content stored in the repository, such as XML and JSON.&lt;/p&gt;
+&lt;p&gt;And thus, &lt;a href=&#34;https://github.com/cmpaul/alfraca&#34;&gt;alfraca&lt;/a&gt; was born!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Counters in Alfresco</title>
       <link>https://hakuna-automata.com/posts/counters-in-alfresco/</link>
       <pubDate>Sat, 09 Jun 2012 06:03:56 -0700</pubDate>
