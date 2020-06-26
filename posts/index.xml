@@ -64,6 +64,16 @@
     </item>
     
     <item>
+      <title>MySQL Commands in Bash Scripts</title>
+      <link>https://hakuna-automata.com/posts/mysql-commands-in-bash/</link>
+      <pubDate>Wed, 15 Aug 2012 14:45:39 -0700</pubDate>
+      
+      <guid>https://hakuna-automata.com/posts/mysql-commands-in-bash/</guid>
+      <description>&lt;p&gt;My journey with trying to automate some routine MySQL setup.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;tl;dr&lt;/strong&gt;: Escape your backticks when running MySQL commands in a bash script.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Alfraca: Alfresco Meets Alpaca.js</title>
       <link>https://hakuna-automata.com/posts/alfresco-meets-alpaca/</link>
       <pubDate>Tue, 03 Jul 2012 06:03:56 -0700</pubDate>

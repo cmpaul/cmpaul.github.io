@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="//gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.72.0" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>MySQL Commands in Bash Scripts &middot; Hakuna Automata!</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://hakuna-automata.com/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://hakuna-automata.com/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://hakuna-automata.com/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://hakuna-automata.com/css/hyde.css">
+  <link type="text/css" rel="stylesheet" href="https://hakuna-automata.com/css/custom.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://hakuna-automata.com/"><h1>Hakuna Automata!</h1></a>
+      <p class="lead">
+       Developing software and people 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://hakuna-automata.com/">Home</a> </li>
+        <li><a href="https://github.com/cmpaul/"> Github </a></li><li><a href="https://www.linkedin.com/in/cmpaul/"> LinkedIn </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>MySQL Commands in Bash Scripts</h1>
+  <time datetime=2012-08-15T14:45:39-0700 class="post-date">Wed, Aug 15, 2012</time>
+  <p>My journey with trying to automate some routine MySQL setup.</p>
+<p><strong>tl;dr</strong>: Escape your backticks when running MySQL commands in a bash script.</p>
+<hr>
+<p>I&rsquo;ve been creating quite a few development environments for Alfresco lately for various projects &ndash; extensions, dashlets, and new customizations &ndash; and decided to try scripting the setup to save myself some time. This involves creating the directories and copying the necessary source and project files, which is simple enough, but it also includes creating an Alfresco database and granting the correct permissions to it. In order to do this from the command line (I&rsquo;m using a bash script on Mac OS X), I had to figure out some escaping trickery to get this to work.</p>
+<p>First some background: I use a naming convention for my Alfresco databases that is not entirely conventional. Specifically, I use names that begin with &ldquo;alf_&rdquo;, followed by the project name, e.g., &ldquo;alf_test-project&rdquo;. For the bash script to be able to execute the mysql command necessary, the underscore needs to be escaped. Normally, this can be done by executing the following SQL in an interactive MySQL terminal:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">create</span> <span style="color:#66d9ef">database</span> <span style="color:#f92672">`</span>alf_test<span style="color:#f92672">-</span>project<span style="color:#f92672">`</span>;
+</code></pre></div><p>When executing this from the bash shell however, the back-ticks need to be escaped as follows, otherwise bash will direct the execution results of &ldquo;alf_test-project&rdquo; to that location in the command:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">user<span style="color:#f92672">=</span>root
+password<span style="color:#f92672">=</span>supersecretpassword
+dbname<span style="color:#f92672">=</span>alf_test-project
+
+mysql -u$user -p$password -e <span style="color:#e6db74">&#34;create database \`</span>$dbname<span style="color:#e6db74">\`;&#34;</span>
+</code></pre></div><p>You can also do this with mysqladmin, avoiding the need to escape:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mysqladmin -u$user -p$password create $dbname
+</code></pre></div><p>Next, the script assigns the correct permissions to the Alfresco database user so it can access the new database. Again, escaped back-ticks will ensure this command executes correctly:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mysql -u$user -p$password -e <span style="color:#e6db74">&#34;GRANT CREATE ROUTINE, CREATE VIEW, ALTER, SHOW VIEW, CREATE, ALTER ROUTINE, EVENT, INSERT, SELECT, DELETE, TRIGGER, REFERENCES, UPDATE, DROP, EXECUTE, LOCK TABLES, CREATE TEMPORARY TABLES, INDEX ON \`</span>$dbname<span style="color:#e6db74">\`.* TO &#39;</span>$user<span style="color:#e6db74">&#39;@&#39;localhost&#39;;&#34;</span>
+</code></pre></div>
+</div>
+
+
+    </main>
+
+    
+  </body>
+</html>
