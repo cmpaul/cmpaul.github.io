@@ -63,5 +63,14 @@
 &lt;p&gt;I just built &lt;a href=&#34;https://atom.io/packages/oblique-strategies&#34;&gt;oblique-strategies&lt;/a&gt;, a package for &lt;a href=&#34;https://atom.io/&#34;&gt;Atom&lt;/a&gt; that displays a random aphorism if you stop typing for some time.&lt;/p&gt;</description>
     </item>
     
+    <item>
+      <title>Counters in Alfresco</title>
+      <link>https://hakuna-automata.com/posts/counters-in-alfresco/</link>
+      <pubDate>Sat, 09 Jun 2012 06:03:56 -0700</pubDate>
+      
+      <guid>https://hakuna-automata.com/posts/counters-in-alfresco/</guid>
+      <description>&lt;p&gt;I recently built a simple sequence generator in Alfresco as part of a project for a client who needed a way to configure and retrieve a unique integer value to be used both in Alfresco and outside of the system.&lt;/p&gt;</description>
+    </item>
+    
   </channel>
 </rss>
