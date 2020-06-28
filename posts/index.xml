@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Hakuna Automata!</title>
+    <title>Posts on Hakuna Automata</title>
     <link>https://hakuna-automata.com/posts/</link>
-    <description>Recent content in Posts on Hakuna Automata!</description>
+    <description>Recent content in Posts on Hakuna Automata</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 02 Aug 2018 06:03:56 -0700</lastBuildDate>
@@ -28,9 +28,7 @@
       
       <guid>https://hakuna-automata.com/posts/6-tips-for-new-engineering-managers/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://hakuna-automata.com/images/tips-for-engineering-managers.jpg&#34; alt=&#34;You made it?!&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Hello, new engineering manager!&lt;/p&gt;
-&lt;p&gt;Have you recently stepped into the role from a developer position? Do you feel like the floor fell out from under you? I’ve been there &amp;ndash; recently.&lt;/p&gt;
-&lt;p&gt;Here are 6 tips that helped me in my first 2 years as a manager.&lt;/p&gt;</description>
+&lt;p&gt;Hello, new engineering manager! Have you recently stepped into the role from a developer position? Here are 6 tips that helped me in my first 2 years as a manager.&lt;/p&gt;</description>
     </item>
     
     <item>

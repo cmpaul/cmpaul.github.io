@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>MySQL Commands in Bash Scripts &middot; Hakuna Automata!</title>
+  <title>MySQL Commands in Bash Scripts &middot; Hakuna Automata</title>
 
   
   <link type="text/css" rel="stylesheet" href="https://hakuna-automata.com/css/print.css" media="print">
@@ -31,9 +31,9 @@
   <aside class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
-      <a href="https://hakuna-automata.com/"><h1>Hakuna Automata!</h1></a>
+      <a href="https://hakuna-automata.com/"><h1>Hakuna Automata</h1></a>
       <p class="lead">
-       Developing software and people 
+       Personal blog of Chris Paul 
       </p>
     </div>
 
@@ -57,17 +57,17 @@
 <hr>
 <p>I&rsquo;ve been creating quite a few development environments for Alfresco lately for various projects &ndash; extensions, dashlets, and new customizations &ndash; and decided to try scripting the setup to save myself some time. This involves creating the directories and copying the necessary source and project files, which is simple enough, but it also includes creating an Alfresco database and granting the correct permissions to it. In order to do this from the command line (I&rsquo;m using a bash script on Mac OS X), I had to figure out some escaping trickery to get this to work.</p>
 <p>First some background: I use a naming convention for my Alfresco databases that is not entirely conventional. Specifically, I use names that begin with &ldquo;alf_&rdquo;, followed by the project name, e.g., &ldquo;alf_test-project&rdquo;. For the bash script to be able to execute the mysql command necessary, the underscore needs to be escaped. Normally, this can be done by executing the following SQL in an interactive MySQL terminal:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">create</span> <span style="color:#66d9ef">database</span> <span style="color:#f92672">`</span>alf_test<span style="color:#f92672">-</span>project<span style="color:#f92672">`</span>;
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">create</span> <span class="k">database</span> <span class="o">`</span><span class="n">alf_test</span><span class="o">-</span><span class="n">project</span><span class="o">`</span><span class="p">;</span>
 </code></pre></div><p>When executing this from the bash shell however, the back-ticks need to be escaped as follows, otherwise bash will direct the execution results of &ldquo;alf_test-project&rdquo; to that location in the command:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">user<span style="color:#f92672">=</span>root
-password<span style="color:#f92672">=</span>supersecretpassword
-dbname<span style="color:#f92672">=</span>alf_test-project
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">user</span><span class="o">=</span>root
+<span class="nv">password</span><span class="o">=</span>supersecretpassword
+<span class="nv">dbname</span><span class="o">=</span>alf_test-project
 
-mysql -u$user -p$password -e <span style="color:#e6db74">&#34;create database \`</span>$dbname<span style="color:#e6db74">\`;&#34;</span>
+mysql -u<span class="nv">$user</span> -p<span class="nv">$password</span> -e <span class="s2">&#34;create database \`</span><span class="nv">$dbname</span><span class="s2">\`;&#34;</span>
 </code></pre></div><p>You can also do this with mysqladmin, avoiding the need to escape:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mysqladmin -u$user -p$password create $dbname
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">mysqladmin -u<span class="nv">$user</span> -p<span class="nv">$password</span> create <span class="nv">$dbname</span>
 </code></pre></div><p>Next, the script assigns the correct permissions to the Alfresco database user so it can access the new database. Again, escaped back-ticks will ensure this command executes correctly:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mysql -u$user -p$password -e <span style="color:#e6db74">&#34;GRANT CREATE ROUTINE, CREATE VIEW, ALTER, SHOW VIEW, CREATE, ALTER ROUTINE, EVENT, INSERT, SELECT, DELETE, TRIGGER, REFERENCES, UPDATE, DROP, EXECUTE, LOCK TABLES, CREATE TEMPORARY TABLES, INDEX ON \`</span>$dbname<span style="color:#e6db74">\`.* TO &#39;</span>$user<span style="color:#e6db74">&#39;@&#39;localhost&#39;;&#34;</span>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">mysql -u<span class="nv">$user</span> -p<span class="nv">$password</span> -e <span class="s2">&#34;GRANT CREATE ROUTINE, CREATE VIEW, ALTER, SHOW VIEW, CREATE, ALTER ROUTINE, EVENT, INSERT, SELECT, DELETE, TRIGGER, REFERENCES, UPDATE, DROP, EXECUTE, LOCK TABLES, CREATE TEMPORARY TABLES, INDEX ON \`</span><span class="nv">$dbname</span><span class="s2">\`.* TO &#39;</span><span class="nv">$user</span><span class="s2">&#39;@&#39;localhost&#39;;&#34;</span>
 </code></pre></div>
 </div>
 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Counters in Alfresco &middot; Hakuna Automata!</title>
+  <title>Counters in Alfresco &middot; Hakuna Automata</title>
 
   
   <link type="text/css" rel="stylesheet" href="https://hakuna-automata.com/css/print.css" media="print">
@@ -31,9 +31,9 @@
   <aside class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
-      <a href="https://hakuna-automata.com/"><h1>Hakuna Automata!</h1></a>
+      <a href="https://hakuna-automata.com/"><h1>Hakuna Automata</h1></a>
       <p class="lead">
-       Developing software and people 
+       Personal blog of Chris Paul 
       </p>
     </div>
 
@@ -57,27 +57,27 @@
 <p>The approach I took was suggested by Mike Rogers, which is simply to create a custom type that will store the count as an attribute. My client needed a way to distinguish between multiple counters for various sequences so each is stored as a separate node. I then built a webscript to access and maintain it. These two steps are outlined below.</p>
 <h2 id="1-create-the-counter-type">1. <strong>Create the counter type</strong></h2>
 <p>Define a content model to include the following type. The type provides an integer attribute with a value to be between 0 and 99,999.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;type</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;dm:counter&#34;</span><span style="color:#f92672">&gt;</span>
-    <span style="color:#f92672">&lt;title&gt;</span>Counter<span style="color:#f92672">&lt;/title&gt;</span>
-    <span style="color:#f92672">&lt;parent&gt;</span>cm:content<span style="color:#f92672">&lt;/parent&gt;</span>
-    <span style="color:#f92672">&lt;properties&gt;</span>
-        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;dm:count&#34;</span><span style="color:#f92672">&gt;</span>
-            <span style="color:#f92672">&lt;title&gt;</span>Value<span style="color:#f92672">&lt;/title&gt;</span>
-            <span style="color:#f92672">&lt;type&gt;</span>d:int<span style="color:#f92672">&lt;/type&gt;</span>
-            <span style="color:#f92672">&lt;default&gt;</span>0<span style="color:#f92672">&lt;/default&gt;</span>
-            <span style="color:#f92672">&lt;constraints&gt;</span>
-                <span style="color:#f92672">&lt;constraint</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;dm:positiveInteger&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;MINMAX&#34;</span><span style="color:#f92672">&gt;</span>
-                    <span style="color:#f92672">&lt;parameter</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;minValue&#34;</span><span style="color:#f92672">&gt;</span>
-                        <span style="color:#f92672">&lt;value&gt;</span>0<span style="color:#f92672">&lt;/value&gt;</span>
-                    <span style="color:#f92672">&lt;/parameter&gt;</span>
-                    <span style="color:#f92672">&lt;parameter</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;maxValue&#34;</span><span style="color:#f92672">&gt;</span>
-                        <span style="color:#f92672">&lt;value&gt;</span>999999<span style="color:#f92672">&lt;/value&gt;</span>
-                    <span style="color:#f92672">&lt;/parameter&gt;</span>
-                <span style="color:#f92672">&lt;/constraint&gt;</span>
-            <span style="color:#f92672">&lt;/constraints&gt;</span>
-        <span style="color:#f92672">&lt;/property&gt;</span>
-    <span style="color:#f92672">&lt;/properties&gt;</span>
-<span style="color:#f92672">&lt;/type&gt;</span>
+<div class="highlight"><pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;type</span> <span class="na">name=</span><span class="s">&#34;dm:counter&#34;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Counter<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;parent&gt;</span>cm:content<span class="nt">&lt;/parent&gt;</span>
+    <span class="nt">&lt;properties&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;dm:count&#34;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;title&gt;</span>Value<span class="nt">&lt;/title&gt;</span>
+            <span class="nt">&lt;type&gt;</span>d:int<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;default&gt;</span>0<span class="nt">&lt;/default&gt;</span>
+            <span class="nt">&lt;constraints&gt;</span>
+                <span class="nt">&lt;constraint</span> <span class="na">name=</span><span class="s">&#34;dm:positiveInteger&#34;</span> <span class="na">type=</span><span class="s">&#34;MINMAX&#34;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">&#34;minValue&#34;</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;value&gt;</span>0<span class="nt">&lt;/value&gt;</span>
+                    <span class="nt">&lt;/parameter&gt;</span>
+                    <span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">&#34;maxValue&#34;</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;value&gt;</span>999999<span class="nt">&lt;/value&gt;</span>
+                    <span class="nt">&lt;/parameter&gt;</span>
+                <span class="nt">&lt;/constraint&gt;</span>
+            <span class="nt">&lt;/constraints&gt;</span>
+        <span class="nt">&lt;/property&gt;</span>
+    <span class="nt">&lt;/properties&gt;</span>
+<span class="nt">&lt;/type&gt;</span>
 </code></pre></div><p>The custom counter type allows us to instantiate unique, named counters in the repository. Another benefit to building this simple extended type is that Share configuration is not required as the default form config will automatically display all of the node&rsquo;s attributes.</p>
 <h2 id="2-build-the-counter-webscripts">2. <strong>Build the counter webscripts</strong></h2>
 <p>Two webscripts provide an interface to retrieve an auto-incremented value and delete the counter. They are accessible at the URL: <code>/alfresco/service/counter/{name}[?value={value}]</code></p>
@@ -85,66 +85,66 @@
 <p>If the node doesn&rsquo;t exist, it is created in this default location. The counter value is then retrieved from the node, incremented by one, stored back to the node, and returned in a JSON object. The optional <code>{value}</code> parameter is used to set the value of the counter.</p>
 <p>The creation, incrementing, and setting of the counter in the GET request means this isn&rsquo;t a 100% RESTful solution, but it wouldn&rsquo;t be hard to break these operations up into the appropriate endpoints.</p>
 <p>First, the GET webscript. All webscript files for this example are in the repo project under <code>/config/extension/templates/webscripts/com/tribloom/counter</code>. The counter.get.desc.xml descriptor initializes the GET webscript with Alfresco:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;webscript&gt;</span>
-    <span style="color:#f92672">&lt;shortname&gt;</span>counter<span style="color:#f92672">&lt;/shortname&gt;</span>
-    <span style="color:#f92672">&lt;description&gt;</span>Retrieves a counter value with the given name. The value will be auto-incremented. An optional value parameter can be used to set the counter.<span style="color:#f92672">&lt;/description&gt;</span>
-    <span style="color:#f92672">&lt;url&gt;</span>/counter/{name}?value={value}<span style="color:#f92672">&lt;/url&gt;</span>
-    <span style="color:#f92672">&lt;family&gt;</span>Counter Demo<span style="color:#f92672">&lt;/family&gt;</span>
-    <span style="color:#f92672">&lt;format</span> <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;json&#34;</span> <span style="color:#f92672">/&gt;</span>
-    <span style="color:#f92672">&lt;authentication&gt;</span>user<span style="color:#f92672">&lt;/authentication&gt;</span>
-    <span style="color:#f92672">&lt;transaction&gt;</span>none<span style="color:#f92672">&lt;/transaction&gt;</span>
-<span style="color:#f92672">&lt;/webscript&gt;</span>
+<div class="highlight"><pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;webscript&gt;</span>
+    <span class="nt">&lt;shortname&gt;</span>counter<span class="nt">&lt;/shortname&gt;</span>
+    <span class="nt">&lt;description&gt;</span>Retrieves a counter value with the given name. The value will be auto-incremented. An optional value parameter can be used to set the counter.<span class="nt">&lt;/description&gt;</span>
+    <span class="nt">&lt;url&gt;</span>/counter/{name}?value={value}<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;family&gt;</span>Counter Demo<span class="nt">&lt;/family&gt;</span>
+    <span class="nt">&lt;format</span> <span class="na">default=</span><span class="s">&#34;json&#34;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;authentication&gt;</span>user<span class="nt">&lt;/authentication&gt;</span>
+    <span class="nt">&lt;transaction&gt;</span>none<span class="nt">&lt;/transaction&gt;</span>
+<span class="nt">&lt;/webscript&gt;</span>
 </code></pre></div><p>Next, build the JavaScript controller, <code>counter.get.js</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">resource</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;classpath:alfresco/extension/templates/webscripts/com/tribloom/counter/counter.js&#34;</span><span style="color:#f92672">&gt;</span>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="kr">import</span> <span class="nx">resource</span><span class="o">=</span><span class="s2">&#34;classpath:alfresco/extension/templates/webscripts/com/tribloom/counter/counter.js&#34;</span><span class="o">&gt;</span>
 
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>() {
-	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">args</span>.<span style="color:#a6e22e">value</span>;
-	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">url</span>.<span style="color:#a6e22e">templateArgs</span>.<span style="color:#a6e22e">name</span>;
-	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">counterNode</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getCounter</span>(<span style="color:#a6e22e">name</span>);
-	<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">counterNode</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span>) {
-		<span style="color:#a6e22e">counterNode</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">countersFolder</span>.<span style="color:#a6e22e">createNode</span>(<span style="color:#a6e22e">name</span>, <span style="color:#e6db74">&#34;dm:counter&#34;</span>);
-	}
-	<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">counterNode</span>.<span style="color:#a6e22e">islocked</span> <span style="color:#f92672">||</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">counterNode</span>.<span style="color:#a6e22e">hasPermission</span>(<span style="color:#e6db74">&#34;Write&#34;</span>)) {
-		<span style="color:#a6e22e">status</span>.<span style="color:#a6e22e">setCode</span>(
-			<span style="color:#a6e22e">status</span>.<span style="color:#a6e22e">STATUS_NOT_AUTHORIZED</span>,
-			<span style="color:#e6db74">&#34;Node is locked or you do not have permission to access it&#34;</span>
-		);
-		<span style="color:#66d9ef">return</span>;
-	}
-	<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">value</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>) {
-		<span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> parseInt(<span style="color:#a6e22e">value</span>);
-		<span style="color:#66d9ef">if</span> (isNaN(<span style="color:#a6e22e">value</span>)) {
-			<span style="color:#a6e22e">status</span>.<span style="color:#a6e22e">setCode</span>(
-				<span style="color:#a6e22e">status</span>.<span style="color:#a6e22e">STATUS_BAD_REQUEST</span>,
-				<span style="color:#e6db74">&#34;Invalid value: &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">url</span>.<span style="color:#a6e22e">templateArgs</span>.<span style="color:#a6e22e">value</span>
-			);
-			<span style="color:#66d9ef">return</span>;
-		}
-	} <span style="color:#66d9ef">else</span> {
-		<span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">counterNode</span>.<span style="color:#a6e22e">properties</span>[<span style="color:#e6db74">&#34;dm:count&#34;</span>];
-	}
-	<span style="color:#a6e22e">counterNode</span>.<span style="color:#a6e22e">properties</span>[<span style="color:#e6db74">&#34;dm:count&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">value</span>;
-	<span style="color:#a6e22e">counterNode</span>.<span style="color:#a6e22e">save</span>();
-	<span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">name</span>;
-	<span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">value</span>;
-}
-<span style="color:#a6e22e">main</span>();
+<span class="kd">function</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">args</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">url</span><span class="p">.</span><span class="nx">templateArgs</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">counterNode</span> <span class="o">=</span> <span class="nx">getCounter</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+	<span class="k">if</span> <span class="p">(</span><span class="nx">counterNode</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">counterNode</span> <span class="o">=</span> <span class="nx">countersFolder</span><span class="p">.</span><span class="nx">createNode</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="s2">&#34;dm:counter&#34;</span><span class="p">);</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="p">(</span><span class="nx">counterNode</span><span class="p">.</span><span class="nx">islocked</span> <span class="o">||</span> <span class="o">!</span><span class="nx">counterNode</span><span class="p">.</span><span class="nx">hasPermission</span><span class="p">(</span><span class="s2">&#34;Write&#34;</span><span class="p">))</span> <span class="p">{</span>
+		<span class="nx">status</span><span class="p">.</span><span class="nx">setCode</span><span class="p">(</span>
+			<span class="nx">status</span><span class="p">.</span><span class="nx">STATUS_NOT_AUTHORIZED</span><span class="p">,</span>
+			<span class="s2">&#34;Node is locked or you do not have permission to access it&#34;</span>
+		<span class="p">);</span>
+		<span class="k">return</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="p">(</span><span class="nx">value</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">value</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nb">isNaN</span><span class="p">(</span><span class="nx">value</span><span class="p">))</span> <span class="p">{</span>
+			<span class="nx">status</span><span class="p">.</span><span class="nx">setCode</span><span class="p">(</span>
+				<span class="nx">status</span><span class="p">.</span><span class="nx">STATUS_BAD_REQUEST</span><span class="p">,</span>
+				<span class="s2">&#34;Invalid value: &#34;</span> <span class="o">+</span> <span class="nx">url</span><span class="p">.</span><span class="nx">templateArgs</span><span class="p">.</span><span class="nx">value</span>
+			<span class="p">);</span>
+			<span class="k">return</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		<span class="nx">value</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="nx">counterNode</span><span class="p">.</span><span class="nx">properties</span><span class="p">[</span><span class="s2">&#34;dm:count&#34;</span><span class="p">];</span>
+	<span class="p">}</span>
+	<span class="nx">counterNode</span><span class="p">.</span><span class="nx">properties</span><span class="p">[</span><span class="s2">&#34;dm:count&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
+	<span class="nx">counterNode</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span>
+	<span class="nx">model</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+	<span class="nx">model</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">main</span><span class="p">();</span>
 </code></pre></div><p>Next, the FreeMarker template formats the response into a JSON object:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
-  <span style="color:#e6db74">&#34;name&#34;</span> <span style="color:#f92672">:</span> <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">?</span><span style="color:#a6e22e">exists</span><span style="color:#f92672">&gt;</span><span style="color:#e6db74">&#34;${name}&#34;</span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#66d9ef">else</span><span style="color:#f92672">&gt;</span><span style="color:#66d9ef">null</span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/#if&gt;,</span>
-  <span style="color:#e6db74">&#34;value&#34;</span> <span style="color:#f92672">:</span> <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">?</span><span style="color:#a6e22e">exists</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">value</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#66d9ef">else</span><span style="color:#f92672">&gt;</span><span style="color:#ae81ff">0</span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/#if&gt;</span>
-}
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="p">{</span>
+  <span class="s2">&#34;name&#34;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="err">#</span><span class="k">if</span> <span class="nx">name</span><span class="o">?</span><span class="nx">exists</span><span class="o">&gt;</span><span class="s2">&#34;${name}&#34;</span><span class="o">&lt;</span><span class="err">#</span><span class="k">else</span><span class="o">&gt;</span><span class="kc">null</span><span class="o">&lt;</span><span class="err">/#if&gt;,</span>
+  <span class="s2">&#34;value&#34;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="err">#</span><span class="k">if</span> <span class="nx">value</span><span class="o">?</span><span class="nx">exists</span><span class="o">&gt;</span><span class="nx">$</span><span class="p">{</span><span class="nx">value</span><span class="p">}</span><span class="o">&lt;</span><span class="err">#</span><span class="k">else</span><span class="o">&gt;</span><span class="mi">0</span><span class="o">&lt;</span><span class="err">/#if&gt;</span>
+<span class="p">}</span>
 </code></pre></div><p>The <code>DELETE</code> webscript is simpler, taking only a descriptor and controller:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;webscript&gt;</span>
-	<span style="color:#f92672">&lt;shortname&gt;</span>counter<span style="color:#f92672">&lt;/shortname&gt;</span>
-	<span style="color:#f92672">&lt;description&gt;</span>Deletes a counter value with the given name.<span style="color:#f92672">&lt;/description&gt;</span>
-	<span style="color:#f92672">&lt;url&gt;</span>/counter/{name}<span style="color:#f92672">&lt;/url&gt;</span>
-	<span style="color:#f92672">&lt;family&gt;</span>Counter Demo<span style="color:#f92672">&lt;/family&gt;</span>
-	<span style="color:#f92672">&lt;format</span> <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;json&#34;</span> <span style="color:#f92672">/&gt;</span>
-	<span style="color:#f92672">&lt;authentication&gt;</span>user<span style="color:#f92672">&lt;/authentication&gt;</span>
-	<span style="color:#f92672">&lt;transaction&gt;</span>none<span style="color:#f92672">&lt;/transaction&gt;</span>
-<span style="color:#f92672">&lt;/webscript&gt;</span>
-<span style="color:#f92672">&lt;import</span> <span style="color:#a6e22e">resource=</span><span style="color:#e6db74">&#34;classpath:alfresco/extension/templates/webscripts/com/tribloom/counter/counter.js&#34;</span><span style="color:#f92672">&gt;</span>
+<div class="highlight"><pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;webscript&gt;</span>
+	<span class="nt">&lt;shortname&gt;</span>counter<span class="nt">&lt;/shortname&gt;</span>
+	<span class="nt">&lt;description&gt;</span>Deletes a counter value with the given name.<span class="nt">&lt;/description&gt;</span>
+	<span class="nt">&lt;url&gt;</span>/counter/{name}<span class="nt">&lt;/url&gt;</span>
+	<span class="nt">&lt;family&gt;</span>Counter Demo<span class="nt">&lt;/family&gt;</span>
+	<span class="nt">&lt;format</span> <span class="na">default=</span><span class="s">&#34;json&#34;</span> <span class="nt">/&gt;</span>
+	<span class="nt">&lt;authentication&gt;</span>user<span class="nt">&lt;/authentication&gt;</span>
+	<span class="nt">&lt;transaction&gt;</span>none<span class="nt">&lt;/transaction&gt;</span>
+<span class="nt">&lt;/webscript&gt;</span>
+<span class="nt">&lt;import</span> <span class="na">resource=</span><span class="s">&#34;classpath:alfresco/extension/templates/webscripts/com/tribloom/counter/counter.js&#34;</span><span class="nt">&gt;</span>
 
 function main() {
 	var name = url.templateArgs.name;

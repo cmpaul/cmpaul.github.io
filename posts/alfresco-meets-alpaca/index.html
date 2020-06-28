@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Alfraca: Alfresco Meets Alpaca.js &middot; Hakuna Automata!</title>
+  <title>Alfraca: Alfresco Meets Alpaca.js &middot; Hakuna Automata</title>
 
   
   <link type="text/css" rel="stylesheet" href="https://hakuna-automata.com/css/print.css" media="print">
@@ -31,9 +31,9 @@
   <aside class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
-      <a href="https://hakuna-automata.com/"><h1>Hakuna Automata!</h1></a>
+      <a href="https://hakuna-automata.com/"><h1>Hakuna Automata</h1></a>
       <p class="lead">
-       Developing software and people 
+       Personal blog of Chris Paul 
       </p>
     </div>
 
@@ -64,42 +64,42 @@
 <h2 id="1-page-description">1. Page description</h2>
 <p><code>config/web-extension/site-data/pages/edit-alpaca.xml</code></p>
 <p>This file describes the custom page and directs Alfresco to a Surf component template, named in the <code>&lt;template-instance&gt;</code> tag.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#39;1.0&#39; encoding=&#39;UTF-8&#39;?&gt;</span>
-<span style="color:#f92672">&lt;page&gt;</span>
-  <span style="color:#f92672">&lt;title&gt;</span>Edit JSON with Alpaca<span style="color:#f92672">&lt;/title&gt;</span>
-  <span style="color:#f92672">&lt;title-id&gt;</span>page.editMetadata.title<span style="color:#f92672">&lt;/title-id&gt;</span>
-  <span style="color:#f92672">&lt;description&gt;</span>Edit a JSON node with Alpaca forms<span style="color:#f92672">&lt;/description&gt;</span>
-  <span style="color:#f92672">&lt;description-id&gt;</span>page.editMetadata.description<span style="color:#f92672">&lt;/description-id&gt;</span>
-  <span style="color:#f92672">&lt;template-instance&gt;</span>edit-alpaca<span style="color:#f92672">&lt;/template-instance&gt;</span>
-  <span style="color:#f92672">&lt;authentication&gt;</span>user<span style="color:#f92672">&lt;/authentication&gt;</span>
-<span style="color:#f92672">&lt;/page&gt;</span>
+<div class="highlight"><pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#39;1.0&#39; encoding=&#39;UTF-8&#39;?&gt;</span>
+<span class="nt">&lt;page&gt;</span>
+  <span class="nt">&lt;title&gt;</span>Edit JSON with Alpaca<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;title-id&gt;</span>page.editMetadata.title<span class="nt">&lt;/title-id&gt;</span>
+  <span class="nt">&lt;description&gt;</span>Edit a JSON node with Alpaca forms<span class="nt">&lt;/description&gt;</span>
+  <span class="nt">&lt;description-id&gt;</span>page.editMetadata.description<span class="nt">&lt;/description-id&gt;</span>
+  <span class="nt">&lt;template-instance&gt;</span>edit-alpaca<span class="nt">&lt;/template-instance&gt;</span>
+  <span class="nt">&lt;authentication&gt;</span>user<span class="nt">&lt;/authentication&gt;</span>
+<span class="nt">&lt;/page&gt;</span>
 </code></pre></div><h2 id="2-template-description">2. Template description</h2>
 <p><code>config/web-extension/site-data/template-instances/edit-alpaca.xml</code></p>
 <p>This page lays out the Surf components that comprise the custom page.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#39;1.0&#39; encoding=&#39;UTF-8&#39;?&gt;</span>
-<span style="color:#f92672">&lt;template-instance&gt;</span>
-  <span style="color:#f92672">&lt;template-type&gt;</span>org/alfresco/edit-alpaca<span style="color:#f92672">&lt;/template-type&gt;</span>
-  <span style="color:#f92672">&lt;properties&gt;</span>
-    <span style="color:#f92672">&lt;pageFamily&gt;</span>documentlibrary<span style="color:#f92672">&lt;/pageFamily&gt;</span>
-    <span style="color:#f92672">&lt;container&gt;</span>documentLibrary<span style="color:#f92672">&lt;/container&gt;</span>
-  <span style="color:#f92672">&lt;/properties&gt;</span>
-  <span style="color:#f92672">&lt;components&gt;</span>
+<div class="highlight"><pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#39;1.0&#39; encoding=&#39;UTF-8&#39;?&gt;</span>
+<span class="nt">&lt;template-instance&gt;</span>
+  <span class="nt">&lt;template-type&gt;</span>org/alfresco/edit-alpaca<span class="nt">&lt;/template-type&gt;</span>
+  <span class="nt">&lt;properties&gt;</span>
+    <span class="nt">&lt;pageFamily&gt;</span>documentlibrary<span class="nt">&lt;/pageFamily&gt;</span>
+    <span class="nt">&lt;container&gt;</span>documentLibrary<span class="nt">&lt;/container&gt;</span>
+  <span class="nt">&lt;/properties&gt;</span>
+  <span class="nt">&lt;components&gt;</span>
 ...
-    <span style="color:#75715e">&lt;!-- Edit Metadata Form --&gt;</span>
-    <span style="color:#f92672">&lt;component&gt;</span>
-     <span style="color:#f92672">&lt;region-id&gt;</span>edit-alpaca<span style="color:#f92672">&lt;/region-id&gt;</span>
-     <span style="color:#f92672">&lt;url&gt;</span>/components/alpaca-form<span style="color:#f92672">&lt;/url&gt;</span>
-     <span style="color:#f92672">&lt;properties&gt;</span>
-     <span style="color:#f92672">&lt;itemKind&gt;</span>node<span style="color:#f92672">&lt;/itemKind&gt;</span>
-     <span style="color:#f92672">&lt;itemId&gt;</span>{nodeRef}<span style="color:#f92672">&lt;/itemId&gt;</span>
-     <span style="color:#f92672">&lt;mode&gt;</span>edit<span style="color:#f92672">&lt;/mode&gt;</span>
-     <span style="color:#f92672">&lt;submitType&gt;</span>json<span style="color:#f92672">&lt;/submitType&gt;</span>
-     <span style="color:#f92672">&lt;showCaption&gt;</span>true<span style="color:#f92672">&lt;/showCaption&gt;</span>
-     <span style="color:#f92672">&lt;showCancelButton&gt;</span>true<span style="color:#f92672">&lt;/showCancelButton&gt;</span>
-     <span style="color:#f92672">&lt;/properties&gt;</span>
-    <span style="color:#f92672">&lt;/component&gt;</span>
-  <span style="color:#f92672">&lt;/components&gt;</span>
-<span style="color:#f92672">&lt;/template-instance&gt;</span>
+    <span class="c">&lt;!-- Edit Metadata Form --&gt;</span>
+    <span class="nt">&lt;component&gt;</span>
+     <span class="nt">&lt;region-id&gt;</span>edit-alpaca<span class="nt">&lt;/region-id&gt;</span>
+     <span class="nt">&lt;url&gt;</span>/components/alpaca-form<span class="nt">&lt;/url&gt;</span>
+     <span class="nt">&lt;properties&gt;</span>
+     <span class="nt">&lt;itemKind&gt;</span>node<span class="nt">&lt;/itemKind&gt;</span>
+     <span class="nt">&lt;itemId&gt;</span>{nodeRef}<span class="nt">&lt;/itemId&gt;</span>
+     <span class="nt">&lt;mode&gt;</span>edit<span class="nt">&lt;/mode&gt;</span>
+     <span class="nt">&lt;submitType&gt;</span>json<span class="nt">&lt;/submitType&gt;</span>
+     <span class="nt">&lt;showCaption&gt;</span>true<span class="nt">&lt;/showCaption&gt;</span>
+     <span class="nt">&lt;showCancelButton&gt;</span>true<span class="nt">&lt;/showCancelButton&gt;</span>
+     <span class="nt">&lt;/properties&gt;</span>
+    <span class="nt">&lt;/component&gt;</span>
+  <span class="nt">&lt;/components&gt;</span>
+<span class="nt">&lt;/template-instance&gt;</span>
 </code></pre></div><h2 id="3-surf-component">3. Surf component</h2>
 <p>In the <code>config/web-extension/site-webscripts/org/alfresco/components/alpaca-forms/</code> directory, these files describe the component referred to by the template:</p>
 <ul>
@@ -109,183 +109,183 @@
 <li><code>alpaca-form.get.properties</code></li>
 </ul>
 <p>Together, they render the necessary script and CSS tags to include the Alpaca library on the page, and pull in the custom JavaScript files that communicate with Alfresco. The magic happens in <code>alpaca-form.get.html.ftl</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span>&gt;
-  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;alpaca-form-field&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
-  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;alpaca-form-field-button-bar&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;  
-  &lt;<span style="color:#f92672">script</span>&gt;
-  <span style="color:#a6e22e">Alpaca</span>.<span style="color:#a6e22e">Forms</span>.<span style="color:#a6e22e">Product</span>.<span style="color:#a6e22e">initialize</span>(<span style="color:#e6db74">&#34;${(page.url.args.nodeRef!&#34;&#34;)?js_string}&#34;</span>);
-  &lt;/<span style="color:#f92672">script</span>&gt;
-&lt;/<span style="color:#f92672">div</span>&gt;
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;alpaca-form-field&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;alpaca-form-field-button-bar&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>  
+  <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="nx">Alpaca</span><span class="p">.</span><span class="nx">Forms</span><span class="p">.</span><span class="nx">Product</span><span class="p">.</span><span class="nx">initialize</span><span class="p">(</span><span class="s2">&#34;${(page.url.args.nodeRef!&#34;&#34;)?js_string}&#34;</span><span class="p">);</span>
+  <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div><p>The initialize function passes the node reference to the code that will query Alfresco for the JSON object and pass it to Alpaca. Alpaca will then attach itself to the &ldquo;alpaca-form-field&rdquo; div element and&ndash;voila!&ndash;instant form goodness.</p>
 <hr>
 <p>Diving into the Alpaca specifics a bit more, you can see the request and rendering occurring in web/alpaca/js_src/AlpacaForms.js. This file is included as part of the Surf component and sets up a namespace and defines the function we&rsquo;ll use to invoke Alfresco and do some housekeeping. The initialize function retrieves the content from Alfresco with a jQuery AJAX call and then passes it to Alpaca.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">$</span>.<span style="color:#a6e22e">ajax</span>({
-  <span style="color:#a6e22e">url</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;/share/proxy/alfresco/api/node/content/&#34;</span>
-    <span style="color:#f92672">+</span> <span style="color:#a6e22e">storeType</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;/&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">storeId</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;/&#34;</span>
-    <span style="color:#f92672">+</span> <span style="color:#a6e22e">nodeId</span>,
-  <span style="color:#a6e22e">success</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">content</span>) {
-    <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;#alpaca-form-field&#34;</span>).<span style="color:#a6e22e">alpaca</span>({
-     <span style="color:#e6db74">&#34;data&#34;</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">content</span>,
-     <span style="color:#e6db74">&#34;schema&#34;</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">Alpaca</span>.<span style="color:#a6e22e">Forms</span>.<span style="color:#a6e22e">Schema</span>.<span style="color:#a6e22e">Product</span>,
-     <span style="color:#e6db74">&#34;options&#34;</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">Alpaca</span>.<span style="color:#a6e22e">Forms</span>.<span style="color:#a6e22e">Options</span>.<span style="color:#a6e22e">Product</span>,
-     ...
-    });
-  },
-  ...
-});
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+  <span class="nx">url</span> <span class="o">:</span> <span class="s2">&#34;/share/proxy/alfresco/api/node/content/&#34;</span>
+    <span class="o">+</span> <span class="nx">storeType</span> <span class="o">+</span> <span class="s2">&#34;/&#34;</span> <span class="o">+</span> <span class="nx">storeId</span> <span class="o">+</span> <span class="s2">&#34;/&#34;</span>
+    <span class="o">+</span> <span class="nx">nodeId</span><span class="p">,</span>
+  <span class="nx">success</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">content</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s2">&#34;#alpaca-form-field&#34;</span><span class="p">).</span><span class="nx">alpaca</span><span class="p">({</span>
+     <span class="s2">&#34;data&#34;</span> <span class="o">:</span> <span class="nx">content</span><span class="p">,</span>
+     <span class="s2">&#34;schema&#34;</span> <span class="o">:</span> <span class="nx">Alpaca</span><span class="p">.</span><span class="nx">Forms</span><span class="p">.</span><span class="nx">Schema</span><span class="p">.</span><span class="nx">Product</span><span class="p">,</span>
+     <span class="s2">&#34;options&#34;</span> <span class="o">:</span> <span class="nx">Alpaca</span><span class="p">.</span><span class="nx">Forms</span><span class="p">.</span><span class="nx">Options</span><span class="p">.</span><span class="nx">Product</span><span class="p">,</span>
+     <span class="p">...</span>
+    <span class="p">});</span>
+  <span class="p">},</span>
+  <span class="p">...</span>
+<span class="p">});</span>
 </code></pre></div><p>We also provide Alpaca with a description of the JSON object it will be receiving. This description is broken into two pieces: the &ldquo;schema&rdquo; and &ldquo;options&rdquo;. The schema describes the JSON object and its properties. The options describe how those properties will be rendered as form components. In the demo project, we are using the example of a piece of JSON describing a product called &ldquo;moxie.json&rdquo;:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#f92672">&#34;product&#34;</span> : <span style="color:#e6db74">&#34;Moxie&#34;</span>,
-  <span style="color:#f92672">&#34;description&#34;</span> : <span style="color:#e6db74">&#34;Lorem ipsum dolor sit amet, consectetur adipiscing elit...&#34;</span>,
-  <span style="color:#f92672">&#34;release-date&#34;</span> : <span style="color:#e6db74">&#34;06/22/2012&#34;</span>,
-  <span style="color:#f92672">&#34;archived&#34;</span> : <span style="color:#66d9ef">false</span>,
-  <span style="color:#f92672">&#34;version&#34;</span> : <span style="color:#e6db74">&#34;1.0&#34;</span>,
-  <span style="color:#f92672">&#34;subject&#34;</span> : <span style="color:#e6db74">&#34;Reading&#34;</span>  
-}
+<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&#34;product&#34;</span> <span class="p">:</span> <span class="s2">&#34;Moxie&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;description&#34;</span> <span class="p">:</span> <span class="s2">&#34;Lorem ipsum dolor sit amet, consectetur adipiscing elit...&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;release-date&#34;</span> <span class="p">:</span> <span class="s2">&#34;06/22/2012&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;archived&#34;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&#34;version&#34;</span> <span class="p">:</span> <span class="s2">&#34;1.0&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;subject&#34;</span> <span class="p">:</span> <span class="s2">&#34;Reading&#34;</span>  
+<span class="p">}</span>
 </code></pre></div><p>Alpaca is configured with a schema that describes this structure in <code>web/alpaca/js_src/schema/ProductSchema.js</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">Alpaca</span>.<span style="color:#a6e22e">Forms</span>.<span style="color:#a6e22e">Schema</span>.<span style="color:#a6e22e">Product</span> <span style="color:#f92672">=</span> {
-  <span style="color:#e6db74">&#34;title&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Product Form&#34;</span>,
-  <span style="color:#e6db74">&#34;description&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Schema for Demo Product JSON object&#34;</span>,
-  <span style="color:#e6db74">&#34;type&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;object&#34;</span>,
-  <span style="color:#e6db74">&#34;properties&#34;</span> <span style="color:#f92672">:</span> {
-    <span style="color:#e6db74">&#34;product&#34;</span> <span style="color:#f92672">:</span> {
-      <span style="color:#e6db74">&#34;title&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Name&#34;</span>,
-      <span style="color:#e6db74">&#34;type&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;string&#34;</span>,
-      <span style="color:#e6db74">&#34;required&#34;</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
-    },
-    <span style="color:#e6db74">&#34;description&#34;</span> <span style="color:#f92672">:</span> {
-      <span style="color:#e6db74">&#34;title&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Description&#34;</span>,
-      <span style="color:#e6db74">&#34;type&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;string&#34;</span>,
-      <span style="color:#e6db74">&#34;required&#34;</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>
-    },
-    <span style="color:#e6db74">&#34;release-date&#34;</span> <span style="color:#f92672">:</span> {
-      <span style="color:#e6db74">&#34;title&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Release Date&#34;</span>,
-      <span style="color:#e6db74">&#34;type&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;string&#34;</span>,
-      <span style="color:#e6db74">&#34;required&#34;</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>
-    },
-    <span style="color:#e6db74">&#34;archived&#34;</span> <span style="color:#f92672">:</span> {
-      <span style="color:#e6db74">&#34;title&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Archived?&#34;</span>,
-      <span style="color:#e6db74">&#34;type&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;boolean&#34;</span>
-    },
-    <span style="color:#e6db74">&#34;version&#34;</span> <span style="color:#f92672">:</span> {
-      <span style="color:#e6db74">&#34;title&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Version&#34;</span>,
-      <span style="color:#e6db74">&#34;type&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;string&#34;</span>,
-      <span style="color:#e6db74">&#34;required&#34;</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>
-    },
-    <span style="color:#e6db74">&#34;subject&#34;</span> <span style="color:#f92672">:</span> {
-      <span style="color:#e6db74">&#34;title&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Subject&#34;</span>,
-      <span style="color:#e6db74">&#34;type&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;string&#34;</span>,
-      <span style="color:#e6db74">&#34;required&#34;</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
-      <span style="color:#e6db74">&#34;enum&#34;</span> <span style="color:#f92672">:</span> [
-          <span style="color:#e6db74">&#34;Arithmetic&#34;</span>,
-          <span style="color:#e6db74">&#34;English&#34;</span>,
-          <span style="color:#e6db74">&#34;French&#34;</span>,
-          <span style="color:#e6db74">&#34;Geography&#34;</span>,
-          <span style="color:#e6db74">&#34;German&#34;</span>,
-          <span style="color:#e6db74">&#34;Reading&#34;</span>,
-          <span style="color:#e6db74">&#34;Spanish&#34;</span>,
-          <span style="color:#e6db74">&#34;Writing&#34;</span>
-      ],
-      <span style="color:#e6db74">&#34;default&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Reading&#34;</span>
-    }
-  }
-};
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">Alpaca</span><span class="p">.</span><span class="nx">Forms</span><span class="p">.</span><span class="nx">Schema</span><span class="p">.</span><span class="nx">Product</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">&#34;title&#34;</span> <span class="o">:</span> <span class="s2">&#34;Product Form&#34;</span><span class="p">,</span>
+  <span class="s2">&#34;description&#34;</span> <span class="o">:</span> <span class="s2">&#34;Schema for Demo Product JSON object&#34;</span><span class="p">,</span>
+  <span class="s2">&#34;type&#34;</span> <span class="o">:</span> <span class="s2">&#34;object&#34;</span><span class="p">,</span>
+  <span class="s2">&#34;properties&#34;</span> <span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&#34;product&#34;</span> <span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&#34;title&#34;</span> <span class="o">:</span> <span class="s2">&#34;Name&#34;</span><span class="p">,</span>
+      <span class="s2">&#34;type&#34;</span> <span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
+      <span class="s2">&#34;required&#34;</span> <span class="o">:</span> <span class="kc">true</span>
+    <span class="p">},</span>
+    <span class="s2">&#34;description&#34;</span> <span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&#34;title&#34;</span> <span class="o">:</span> <span class="s2">&#34;Description&#34;</span><span class="p">,</span>
+      <span class="s2">&#34;type&#34;</span> <span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
+      <span class="s2">&#34;required&#34;</span> <span class="o">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="s2">&#34;release-date&#34;</span> <span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&#34;title&#34;</span> <span class="o">:</span> <span class="s2">&#34;Release Date&#34;</span><span class="p">,</span>
+      <span class="s2">&#34;type&#34;</span> <span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
+      <span class="s2">&#34;required&#34;</span> <span class="o">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="s2">&#34;archived&#34;</span> <span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&#34;title&#34;</span> <span class="o">:</span> <span class="s2">&#34;Archived?&#34;</span><span class="p">,</span>
+      <span class="s2">&#34;type&#34;</span> <span class="o">:</span> <span class="s2">&#34;boolean&#34;</span>
+    <span class="p">},</span>
+    <span class="s2">&#34;version&#34;</span> <span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&#34;title&#34;</span> <span class="o">:</span> <span class="s2">&#34;Version&#34;</span><span class="p">,</span>
+      <span class="s2">&#34;type&#34;</span> <span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
+      <span class="s2">&#34;required&#34;</span> <span class="o">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="s2">&#34;subject&#34;</span> <span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&#34;title&#34;</span> <span class="o">:</span> <span class="s2">&#34;Subject&#34;</span><span class="p">,</span>
+      <span class="s2">&#34;type&#34;</span> <span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
+      <span class="s2">&#34;required&#34;</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">&#34;enum&#34;</span> <span class="o">:</span> <span class="p">[</span>
+          <span class="s2">&#34;Arithmetic&#34;</span><span class="p">,</span>
+          <span class="s2">&#34;English&#34;</span><span class="p">,</span>
+          <span class="s2">&#34;French&#34;</span><span class="p">,</span>
+          <span class="s2">&#34;Geography&#34;</span><span class="p">,</span>
+          <span class="s2">&#34;German&#34;</span><span class="p">,</span>
+          <span class="s2">&#34;Reading&#34;</span><span class="p">,</span>
+          <span class="s2">&#34;Spanish&#34;</span><span class="p">,</span>
+          <span class="s2">&#34;Writing&#34;</span>
+      <span class="p">],</span>
+      <span class="s2">&#34;default&#34;</span> <span class="o">:</span> <span class="s2">&#34;Reading&#34;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">};</span>
 </code></pre></div><p>Next, the options describe the form fields that Alpaca should render for each property:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">Alpaca</span>.<span style="color:#a6e22e">Forms</span>.<span style="color:#a6e22e">Options</span>.<span style="color:#a6e22e">Product</span> <span style="color:#f92672">=</span> {
-  <span style="color:#e6db74">&#34;label&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Product Form&#34;</span>,
-  <span style="color:#e6db74">&#34;helper&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Enter the product data.&#34;</span>,
-  <span style="color:#e6db74">&#34;type&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;alpaca.demo.product&#34;</span>,
-  <span style="color:#e6db74">&#34;fields&#34;</span> <span style="color:#f92672">:</span> {
-    <span style="color:#e6db74">&#34;product&#34;</span> <span style="color:#f92672">:</span> {
-      <span style="color:#e6db74">&#34;type&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;text&#34;</span>
-    },
-    <span style="color:#e6db74">&#34;description&#34;</span> <span style="color:#f92672">:</span> {
-      <span style="color:#e6db74">&#34;type&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;textarea&#34;</span>
-    },
-    <span style="color:#e6db74">&#34;release-date&#34;</span> <span style="color:#f92672">:</span> {
-      <span style="color:#e6db74">&#34;type&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;date&#34;</span>
-    },
-    <span style="color:#e6db74">&#34;archived&#34;</span> <span style="color:#f92672">:</span> {
-      <span style="color:#e6db74">&#34;type&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;checkbox&#34;</span>
-    },
-    <span style="color:#e6db74">&#34;version&#34;</span> <span style="color:#f92672">:</span> {
-      <span style="color:#e6db74">&#34;type&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;text&#34;</span>
-    },
-    <span style="color:#e6db74">&#34;subject&#34;</span> <span style="color:#f92672">:</span> {
-      <span style="color:#e6db74">&#34;type&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;select&#34;</span>,
-      <span style="color:#e6db74">&#34;optionLabels&#34;</span> <span style="color:#f92672">:</span> [
-        <span style="color:#e6db74">&#34;Arithmetic&#34;</span>,
-        <span style="color:#e6db74">&#34;English&#34;</span>,
-        <span style="color:#e6db74">&#34;French&#34;</span>,
-        <span style="color:#e6db74">&#34;Geography&#34;</span>,
-        <span style="color:#e6db74">&#34;German&#34;</span>,
-        <span style="color:#e6db74">&#34;Reading&#34;</span>,
-        <span style="color:#e6db74">&#34;Spanish&#34;</span>,
-        <span style="color:#e6db74">&#34;Writing&#34;</span>
-      ]
-    }
-  }
-};
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">Alpaca</span><span class="p">.</span><span class="nx">Forms</span><span class="p">.</span><span class="nx">Options</span><span class="p">.</span><span class="nx">Product</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">&#34;label&#34;</span> <span class="o">:</span> <span class="s2">&#34;Product Form&#34;</span><span class="p">,</span>
+  <span class="s2">&#34;helper&#34;</span> <span class="o">:</span> <span class="s2">&#34;Enter the product data.&#34;</span><span class="p">,</span>
+  <span class="s2">&#34;type&#34;</span> <span class="o">:</span> <span class="s2">&#34;alpaca.demo.product&#34;</span><span class="p">,</span>
+  <span class="s2">&#34;fields&#34;</span> <span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&#34;product&#34;</span> <span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&#34;type&#34;</span> <span class="o">:</span> <span class="s2">&#34;text&#34;</span>
+    <span class="p">},</span>
+    <span class="s2">&#34;description&#34;</span> <span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&#34;type&#34;</span> <span class="o">:</span> <span class="s2">&#34;textarea&#34;</span>
+    <span class="p">},</span>
+    <span class="s2">&#34;release-date&#34;</span> <span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&#34;type&#34;</span> <span class="o">:</span> <span class="s2">&#34;date&#34;</span>
+    <span class="p">},</span>
+    <span class="s2">&#34;archived&#34;</span> <span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&#34;type&#34;</span> <span class="o">:</span> <span class="s2">&#34;checkbox&#34;</span>
+    <span class="p">},</span>
+    <span class="s2">&#34;version&#34;</span> <span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&#34;type&#34;</span> <span class="o">:</span> <span class="s2">&#34;text&#34;</span>
+    <span class="p">},</span>
+    <span class="s2">&#34;subject&#34;</span> <span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&#34;type&#34;</span> <span class="o">:</span> <span class="s2">&#34;select&#34;</span><span class="p">,</span>
+      <span class="s2">&#34;optionLabels&#34;</span> <span class="o">:</span> <span class="p">[</span>
+        <span class="s2">&#34;Arithmetic&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;English&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;French&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;Geography&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;German&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;Reading&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;Spanish&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;Writing&#34;</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">};</span>
 </code></pre></div><p>Once Alpaca has these descriptions and the JSON object itself, the form can be rendered.</p>
 <p>To access the form, we configured an action link that is visible on the node from the document library. This action passes the document&rsquo;s node reference to the custom page, which then passes it to the JavaScript function. We don&rsquo;t necessarily want the new page to be accessible for any piece of content, so we restricted the action based on content type. This can be seen in the file <code>config/web-extension/alpaca-action-context.xml</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
-<span style="color:#75715e">&lt;!DOCTYPE beans PUBLIC &#39;-//SPRING/DTD BEAN//EN&#39; &#39;http://www.springframework.org/dtd/spring-beans.dtd&#39;&gt;</span>
-<span style="color:#f92672">&lt;beans&gt;</span>
-  <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;evaluator.doclib.action.edit-alpaca&#34;</span> <span style="color:#a6e22e">parent=</span><span style="color:#e6db74">&#34;evaluator.doclib.action.isMimetype&#34;</span><span style="color:#f92672">&gt;</span>
-    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;mimetypes&#34;</span><span style="color:#f92672">&gt;</span>
-      <span style="color:#f92672">&lt;list&gt;</span>
-        <span style="color:#f92672">&lt;value&gt;</span>application/json<span style="color:#f92672">&lt;/value&gt;</span>
-      <span style="color:#f92672">&lt;/list&gt;</span>
-    <span style="color:#f92672">&lt;/property&gt;</span>
-  <span style="color:#f92672">&lt;/bean&gt;</span>
-<span style="color:#f92672">&lt;/beans&gt;</span>
+<div class="highlight"><pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span class="cp">&lt;!DOCTYPE beans PUBLIC &#39;-//SPRING/DTD BEAN//EN&#39; &#39;http://www.springframework.org/dtd/spring-beans.dtd&#39;&gt;</span>
+<span class="nt">&lt;beans&gt;</span>
+  <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;evaluator.doclib.action.edit-alpaca&#34;</span> <span class="na">parent=</span><span class="s">&#34;evaluator.doclib.action.isMimetype&#34;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;mimetypes&#34;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;list&gt;</span>
+        <span class="nt">&lt;value&gt;</span>application/json<span class="nt">&lt;/value&gt;</span>
+      <span class="nt">&lt;/list&gt;</span>
+    <span class="nt">&lt;/property&gt;</span>
+  <span class="nt">&lt;/bean&gt;</span>
+<span class="nt">&lt;/beans&gt;</span>
 </code></pre></div><p>The action is then configured in <code>share-config-custom.xml</code> using the above evaluator to control visibility:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;alfresco-config&gt;</span>
-  <span style="color:#f92672">&lt;config</span> <span style="color:#a6e22e">evaluator=</span><span style="color:#e6db74">&#34;string-compare&#34;</span> <span style="color:#a6e22e">condition=</span><span style="color:#e6db74">&#34;DocLibActions&#34;</span><span style="color:#f92672">&gt;</span>
-    <span style="color:#f92672">&lt;actions&gt;</span>
-      <span style="color:#f92672">&lt;action</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;document-edit-alpaca&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;pagelink&#34;</span> <span style="color:#a6e22e">label=</span><span style="color:#e6db74">&#34;actions.document.edit-alpaca&#34;</span><span style="color:#f92672">&gt;</span>
-        <span style="color:#f92672">&lt;param</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;page&#34;</span><span style="color:#f92672">&gt;</span>edit-alpaca?nodeRef={node.nodeRef}<span style="color:#f92672">&lt;/param&gt;</span>
-        <span style="color:#f92672">&lt;permissions&gt;</span>
-          <span style="color:#f92672">&lt;permission</span> <span style="color:#a6e22e">allow=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">&gt;</span>Write<span style="color:#f92672">&lt;/permission&gt;</span>
-        <span style="color:#f92672">&lt;/permissions&gt;</span>
-        <span style="color:#f92672">&lt;evaluator</span> <span style="color:#a6e22e">negate=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">&gt;</span>evaluator.doclib.action.isLocked<span style="color:#f92672">&lt;/evaluator&gt;</span>
-        <span style="color:#f92672">&lt;evaluator&gt;</span>evaluator.doclib.action.edit-alpaca<span style="color:#f92672">&lt;/evaluator&gt;</span>
-      <span style="color:#f92672">&lt;/action&gt;</span>
-    <span style="color:#f92672">&lt;/actions&gt;</span>
-    <span style="color:#f92672">&lt;actionGroups&gt;</span>
-      <span style="color:#f92672">&lt;actionGroup</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;document-browse&#34;</span><span style="color:#f92672">&gt;</span>
-        <span style="color:#f92672">&lt;action</span> <span style="color:#a6e22e">index=</span><span style="color:#e6db74">&#34;100&#34;</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;document-edit-alpaca&#34;</span> <span style="color:#f92672">/&gt;</span>
-      <span style="color:#f92672">&lt;/actionGroup&gt;</span>
-      <span style="color:#f92672">&lt;actionGroup</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;document-details&#34;</span><span style="color:#f92672">&gt;</span>
-        <span style="color:#f92672">&lt;action</span> <span style="color:#a6e22e">index=</span><span style="color:#e6db74">&#34;100&#34;</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;document-edit-alpaca&#34;</span> <span style="color:#f92672">/&gt;</span>
-      <span style="color:#f92672">&lt;/actionGroup&gt;</span>
-    <span style="color:#f92672">&lt;/actionGroups&gt;</span>
-  <span style="color:#f92672">&lt;/config&gt;</span>
-<span style="color:#f92672">&lt;/alfresco-config&gt;</span>
+<div class="highlight"><pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;alfresco-config&gt;</span>
+  <span class="nt">&lt;config</span> <span class="na">evaluator=</span><span class="s">&#34;string-compare&#34;</span> <span class="na">condition=</span><span class="s">&#34;DocLibActions&#34;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;actions&gt;</span>
+      <span class="nt">&lt;action</span> <span class="na">id=</span><span class="s">&#34;document-edit-alpaca&#34;</span> <span class="na">type=</span><span class="s">&#34;pagelink&#34;</span> <span class="na">label=</span><span class="s">&#34;actions.document.edit-alpaca&#34;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;param</span> <span class="na">name=</span><span class="s">&#34;page&#34;</span><span class="nt">&gt;</span>edit-alpaca?nodeRef={node.nodeRef}<span class="nt">&lt;/param&gt;</span>
+        <span class="nt">&lt;permissions&gt;</span>
+          <span class="nt">&lt;permission</span> <span class="na">allow=</span><span class="s">&#34;true&#34;</span><span class="nt">&gt;</span>Write<span class="nt">&lt;/permission&gt;</span>
+        <span class="nt">&lt;/permissions&gt;</span>
+        <span class="nt">&lt;evaluator</span> <span class="na">negate=</span><span class="s">&#34;true&#34;</span><span class="nt">&gt;</span>evaluator.doclib.action.isLocked<span class="nt">&lt;/evaluator&gt;</span>
+        <span class="nt">&lt;evaluator&gt;</span>evaluator.doclib.action.edit-alpaca<span class="nt">&lt;/evaluator&gt;</span>
+      <span class="nt">&lt;/action&gt;</span>
+    <span class="nt">&lt;/actions&gt;</span>
+    <span class="nt">&lt;actionGroups&gt;</span>
+      <span class="nt">&lt;actionGroup</span> <span class="na">id=</span><span class="s">&#34;document-browse&#34;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;action</span> <span class="na">index=</span><span class="s">&#34;100&#34;</span> <span class="na">id=</span><span class="s">&#34;document-edit-alpaca&#34;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;/actionGroup&gt;</span>
+      <span class="nt">&lt;actionGroup</span> <span class="na">id=</span><span class="s">&#34;document-details&#34;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;action</span> <span class="na">index=</span><span class="s">&#34;100&#34;</span> <span class="na">id=</span><span class="s">&#34;document-edit-alpaca&#34;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;/actionGroup&gt;</span>
+    <span class="nt">&lt;/actionGroups&gt;</span>
+  <span class="nt">&lt;/config&gt;</span>
+<span class="nt">&lt;/alfresco-config&gt;</span>
 </code></pre></div><p>Finally, leveraging Alfresco&rsquo;s webscripting capabilities, we built HTTP endpoints that send and receive node content in JSON format. In the demo project, I&rsquo;ve assumed that the node content is already JSON (with a mimetype of &ldquo;application/json&rdquo;) and because of this I can point the custom code to the out-of-the-box content retrieval webscript at <code>/api/node/content</code>. As a side note, we converted our customer&rsquo;s XML content to JSON in this webscript.</p>
 <p>The webscript to store the new JSON object takes a node reference and simply stores the JSON directly to the content of the node. Take a look at the webscript files located at <code>demo-alpaca-repo/config/alfresco/extension/templates/webscripts/com/tribloom/demo/product/product.post.json.js</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>() {
-  <span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">success</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">model</span><span class="p">.</span><span class="nx">success</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
 
-  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">nodeRef</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">url</span>.<span style="color:#a6e22e">templateArgs</span>[<span style="color:#e6db74">&#39;storeType&#39;</span>] <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;://&#34;</span> 
-        <span style="color:#f92672">+</span> <span style="color:#a6e22e">url</span>.<span style="color:#a6e22e">templateArgs</span>[<span style="color:#e6db74">&#39;storeId&#39;</span>] <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;/&#34;</span> 
-        <span style="color:#f92672">+</span> <span style="color:#a6e22e">url</span>.<span style="color:#a6e22e">templateArgs</span>[<span style="color:#e6db74">&#39;nodeId&#39;</span>];
+  <span class="kd">var</span> <span class="nx">nodeRef</span> <span class="o">=</span> <span class="nx">url</span><span class="p">.</span><span class="nx">templateArgs</span><span class="p">[</span><span class="s1">&#39;storeType&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&#34;://&#34;</span> 
+        <span class="o">+</span> <span class="nx">url</span><span class="p">.</span><span class="nx">templateArgs</span><span class="p">[</span><span class="s1">&#39;storeId&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&#34;/&#34;</span> 
+        <span class="o">+</span> <span class="nx">url</span><span class="p">.</span><span class="nx">templateArgs</span><span class="p">[</span><span class="s1">&#39;nodeId&#39;</span><span class="p">];</span>
 
-  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">scriptNode</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">search</span>.<span style="color:#a6e22e">findNode</span>(<span style="color:#a6e22e">nodeRef</span>);
+  <span class="kd">var</span> <span class="nx">scriptNode</span> <span class="o">=</span> <span class="nx">search</span><span class="p">.</span><span class="nx">findNode</span><span class="p">(</span><span class="nx">nodeRef</span><span class="p">);</span>
 
-  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">scriptNode</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span>) {
-    <span style="color:#a6e22e">status</span>.<span style="color:#a6e22e">code</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">500</span>;
-    <span style="color:#a6e22e">status</span>.<span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Unable to find node for nodeRef &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">nodeRef</span>;
-    <span style="color:#66d9ef">return</span>;
-  }
+  <span class="k">if</span> <span class="p">(</span><span class="nx">scriptNode</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">status</span><span class="p">.</span><span class="nx">code</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span>
+    <span class="nx">status</span><span class="p">.</span><span class="nx">message</span> <span class="o">=</span> <span class="s2">&#34;Unable to find node for nodeRef &#34;</span> <span class="o">+</span> <span class="nx">nodeRef</span><span class="p">;</span>
+    <span class="k">return</span><span class="p">;</span>
+  <span class="p">}</span>
 
-  <span style="color:#a6e22e">scriptNode</span>.<span style="color:#a6e22e">content</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">json</span>;
+  <span class="nx">scriptNode</span><span class="p">.</span><span class="nx">content</span> <span class="o">=</span> <span class="nx">json</span><span class="p">;</span>
 
-  <span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">success</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
-  <span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">nodeRef</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodeRef</span>;
-}
+  <span class="nx">model</span><span class="p">.</span><span class="nx">success</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="nx">model</span><span class="p">.</span><span class="nx">nodeRef</span> <span class="o">=</span> <span class="nx">nodeRef</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span style="color:#a6e22e">main</span>();
+<span class="nx">main</span><span class="p">();</span>
 </code></pre></div><p>These three customizations are common changes that illustrate how simple it is to extend Share &ndash; particularly with the improvements to 4.0 that provide extension points in the XML configuration files.</p>
 <p>By using the Alpaca library as an example, I hope I&rsquo;ve demonstrated this and shown that Alpaca is an easily integrated library that gives you forms capabilities with minimal development.</p>
 </div>
